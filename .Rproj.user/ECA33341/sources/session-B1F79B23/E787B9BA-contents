@@ -1,0 +1,37 @@
+---
+title: "msa"
+author: "Finn"
+date: "2022-09-11"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+``` {r, libraries}
+library(msa)
+library(Biostrings)
+library(bios2mds)
+library(knitr)
+library(tinytex)
+library(tidyverse)
+library(seqinr)
+library(ShortRead)
+library(DECIPHER)
+```
+
+``` {r read-data, echo=F, warning=F, message=F}
+msa <- readDNAStringSet("~/Documents/Github/mscTayLab/resources/MyD88.similarity.fasta")
+HSP90_seqs <- msa::msa( inputSeqs = HSP90_seqs, method = "ClustalOmega")
+HSP90_seqs <- msa::msaConvert(HSP90_seqs, "bios2mds::align")
+bios2mds::export.fasta(HSP90_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/hsp90.aln")
+
+
+```
+
+
+
+

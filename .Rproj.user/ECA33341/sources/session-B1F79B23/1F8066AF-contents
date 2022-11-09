@@ -1,0 +1,131 @@
+---
+title: "msa"
+author: "Finn Lo"
+date: "2022-08-25"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+``` {r, libraries}
+library(msa)
+library(Biostrings)
+library(bios2mds)
+library(knitr)
+library(tinytex)
+library(tidyverse)
+library(seqinr)
+library(ShortRead)
+library(DECIPHER)
+```
+
+```{r, HZ-seqs, echo=F, message=F, warning=F}
+HSP90_seqs <- readDNAStringSet("~/Desktop/Sequencing_Results/HSP90_seqs.fasta")
+HSP90_seqs <- msa::msa( inputSeqs = HSP90_seqs, method = "ClustalOmega")
+HSP90_seqs <- msa::msaConvert(HSP90_seqs, "bios2mds::align")
+bios2mds::export.fasta(HSP90_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/hsp90.aln")
+
+################################################################################
+################################################################################
+COWP_seqs <- readDNAStringSet("~/Desktop/Sequencing_Results/COWP_seqs.fasta")
+COWP_seqs <- msa::msa( inputSeqs = COWP_seqs, method = "ClustalOmega")
+COWP_seqs <- msa::msaConvert(COWP_seqs, "bios2mds::align")
+bios2mds::export.fasta(COWP_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/COWP.aln")
+
+################################################################################
+################################################################################
+MSC67_seqs <- readDNAStringSet("~/Desktop/Sequencing_Results/MSC6-7_seqs.fasta")
+MSC67_seqs <- msa::msa( inputSeqs = MSC67_seqs, method = "ClustalOmega")
+MSC67_seqs <- msa::msaConvert(MSC67_seqs, "bios2mds::align")
+bios2mds::export.fasta(MSC67_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/MSC67.aln")
+
+################################################################################
+################################################################################
+GST3_seqs <- readDNAStringSet("~/Desktop/Sequencing_Results/GST3_seqs.fasta")
+GST3_seqs <- msa::msa(GST3_seqs, method = "ClustalOmega")
+
+shablam <- GST3_seqs
+msaPrettyPrint(shablam, output="pdf", verbose=T)
+
+print(GST3_seqs, show="complete")
+GST3_seqs <- msa::msaConvert(GST3_seqs, "bios2mds::align")
+bios2mds::export.fasta(GST3_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/GST3.aln")
+```
+
+``` {r, GAP, echo=F, message=F, warning=F}
+gp60_seqs <- readDNAStringSet("~/Documents/Github/Crypto/Genome_Analysis/results/mergedFasta/CTYZ_00001283.fasta")
+gp60_seqs <- msa::msa(gp60_seqs, method = "ClustalOmega")
+msaPrettyPrint(gp60_seqs, output="pdf", verbose=T)
+print(gp60_seqs, show="complete")
+gp60_seqs <- msa::msaConvert(gp60_seqs, "bios2mds::align")
+bios2mds::export.fasta(gp60_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/gp60.aln")
+```
+
+``` {r CTYZ_00001283, echo=F, message=F, warning=F}
+folder <- "~/Desktop/p_fasta_folders/"
+files <- paste0(folder, c("EUR_T_866.filtered_gene/CTYZ_00001283",
+                          "EUR_T_900.filtered_gene/CTYZ_00001283",
+                          "EUR_T_942.filtered_gene/CTYZ_00001283",
+                          "USA_T_GA.filtered_gene/CTYZ_00001283",
+                          "CHN_T_GU.filtered_gene/CTYZ_00001283"), ".fas")
+#files <- files %>% append("~/Desktop/Sequencing_Results/GP60_seqs.fasta")
+
+fa_seq <- lapply(files,readDNAStringSet)
+fa_seq <- do.call(c,fa_seq)
+fa_seq <- unique(fa_seq)
+writeFasta(fa_seq, "~/Desktop/p_fasta_folders/fasta_primer_design/CTYZ_00001283.fasta")
+gp60_seqs <- readDNAStringSet("~/Desktop/p_fasta_folders/fasta_primer_design/CTYZ_00001283.fasta")
+
+gp60_seqs <- msa::msa(gp60_seqs, method = "ClustalOmega")
+#msaPrettyPrint(gp60_seqs, output="pdf", verbose=T)
+print(gp60_seqs, show="complete")
+gp60_seqs <- msa::msaConvert(gp60_seqs, "bios2mds::align")
+bios2mds::export.fasta(gp60_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/gp60.aln")
+```
+
+``` {r aln, echo=F, warning=F, message=F}
+# specify the path to the FASTA file (in quotes)
+fas <- "~/Desktop/p_fasta_folders/fasta_primer_design/CTYZ_00001283.fasta"
+
+# load the sequences from the file
+# change "DNA" to "RNA" or "AA" if necessary
+seqs <- readDNAStringSet(fas)
+
+# nucleotide sequences need to be in the same orientation
+# if they are not, then they can be reoriented (optional)
+seqs <- OrientNucleotides(seqs)
+
+# perform the alignment
+aligned <- AlignSeqs(seqs)
+
+# view the alignment in a browser (optional)
+BrowseSeqs(aligned, highlight=0)
+
+# write the alignment to a new FASTA file
+writeXStringSet(aligned, file="~/Desktop/p_fasta_folders/fasta_primer_design/CTYZ_00001283.aln.fasta")
+```
+
+``` {r}
+library(DECIPHER)
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

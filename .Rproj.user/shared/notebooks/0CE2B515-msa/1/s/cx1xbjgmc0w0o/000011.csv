@@ -1,0 +1,5 @@
+"0","msa <- readDNAStringSet(""~/Documents/Github/mscTayLab/results/MyD88.similarity.fasta"")
+"
+"2","Error in .Call2(""new_input_filexp"", filepath, PACKAGE = ""XVector"") : 
+  cannot open file '/Users/finnlo/Documents/Github/mscTayLab/results/MyD88.similarity.fasta'
+"
