@@ -24,10 +24,10 @@ library(DECIPHER)
 ```
 
 ``` {r read-data, echo=F, warning=F, message=F}
-msa <- readDNAStringSet("~/Documents/Github/mscTayLab/results/fasta/MyD88.similarity.fasta")
-HSP90_seqs <- msa::msa( inputSeqs = HSP90_seqs, method = "ClustalOmega")
-HSP90_seqs <- msa::msaConvert(HSP90_seqs, "bios2mds::align")
-bios2mds::export.fasta(HSP90_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/hsp90.aln")
+myd88 <- readAAStringSet("~/Documents/Github/mscTayLab/results/fasta/MyD88.similarity.fasta", )
+myd88_seqs <- msa::msa(inputSeqs = myd88, method = "ClustalOmega")
+myd88_seqs <- msa::msaConvert(myd88_seqs, "bios2mds::align")
+bios2mds::export.fasta(myd88_seqs, outfile = "~/Documents/Github/Crypto/Genome_Analysis/results/alignments/myd88.aln")
 
 
 ```
