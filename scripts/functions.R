@@ -46,7 +46,17 @@ browse <- function(FASTA, BROWSE, HIGHLIGHT = NA, START = NA, END = NA) {
     names(amplicon) <- desc$description
     BrowseSeqs(amplicon, highlight = HIGHLIGHT)
   } else {
-    print("not browsing Seqs in dbConn.")
+    dbConn <- dbConnect(SQLite(), ":memory:")
+    Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE))
+    desc <- dbGetQuery(dbConn, "select description from Seqs")
+    Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn)
+    Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn)
+    #BrowseDB(dbConn)
+    aa <- SearchDB(dbConn)
+    #dbDisconnect(dbConn)
+    amplicon <- subseq(aa, start = START, end = END)
+    names(amplicon) <- desc$description
+    BrowseSeqs(amplicon, highlight = HIGHLIGHT)
   } 
 }
 
