@@ -57,7 +57,7 @@ browse <- function(FASTA, BROWSE, HIGHLIGHT = NA, START = NA, END = NA) {
     amplicon <- subseq(aa, start = START, end = END)
     names(amplicon) <- desc$description
     BrowseSeqs(amplicon, highlight = HIGHLIGHT)
-  } 
+  }
 }
 
 ### FUNCTION TO EXTRACT AF2C-MODEL-INFORMATION FROM ############################
