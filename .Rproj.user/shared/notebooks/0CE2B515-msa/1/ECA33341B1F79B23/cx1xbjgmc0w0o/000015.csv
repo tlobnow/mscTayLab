@@ -1,4 +1,0 @@
-"0","myd88_seqs <- msa::msa(inputSeqs = myd88, method = ""ClustalOmega"")
-"
-"1","using Gonnet
-"

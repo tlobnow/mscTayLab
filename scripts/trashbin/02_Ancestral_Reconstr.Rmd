@@ -1,0 +1,203 @@
+---
+title: "Ancestral Reconstruction Tutorial"
+author: "Finn Lo"
+date: "2022-12-03"
+output: html_document
+---
+
+# HowTo/Ancestral State Reconstruction
+
+``` {r intro, echo=T, message=F, warning=F}
+library(ape)
+
+geotree <- read.nexus("~/Documents/Github/mscTayLab/etc/input/geospiza.nex")
+geodata <- read.table("~/Documents/Github/mscTayLab/etc/input/geospiza.txt")
+
+# Tip data is not available for the outgroup "olivacea", so drop that taxon from the analysis.
+geotree <- drop.tip(geotree, "olivacea")
+
+# IMPORTANT. The row.names of your dataframe must match the tip.labels of your phylogeny. In the example above, the row.names for geodata will match the tip.labels for geotree after "olivacea" has been culled. However, the individual columns of geodata (e.g. geodata$wingL) do not automatically have the row.names of the whole data table associated with them! If you call a column of the data.table with ace without first dealing with this issue, the analysis will run, but the tip data will be disassociated from the proper tips! There are two workarounds.
+
+# One option is to sort the datatable so that the taxa appear in the same order in the table as in the phylogeny. For example:
+
+#geodata <- geodata[geotree$tip.label, ]
+
+#The other, and better option is to extract the column of data of interest from the overall datatable, creating a new vector, and to transfer the row.names of the data frame to the NAMES of the vector. This is the option least likely to inadvertently disassociate the tip data from the tips.
+
+wingL <- geodata$wingL
+names(wingL) <- row.names(geodata)
+```
+
+
+## Reconstructing Ancestral States for Continuous Variables
+
+There are three general options for continuous variables: reconstructions based on **maximum likelihood** (ML), reconstructions based upon **phylogenetic independent contrasts** (pic) and reconstructions based on **generalized least squares** (GLS). Be aware that the generalized least squares algorithms seem to give spurious results near the root of the phylogeny at present.
+
+
+### MAXIMUM LIKELIHOOD
+
+This syntax will reconstruct the ancestral states for the variable "wingL" (extracted from geodata) using the Brownian motion-based maximum likelihood (ML) estimator of Schluter et. al. (1997). This is the default method.
+
+``` {r ML, echo=T, message=F, warning=F}
+MLreconstruction <- ace(wingL, 
+                        geotree, 
+                        type = "continuous", 
+                        method = "ML")
+
+# Why am I getting all these warning messages?
+## ML reconstruction using ace tends to generate a large number of not-a-number error messages. These result when the program calculates the likelihood of particularly poor fits. You can safely ignore these messages.
+```
+
+### WHAT ABOUT SQUARED CHANGE PARSIMONY?
+
+Squared change parsimony is mathematically equivalent to a special case of Schluter et. al.'s maximum likelihood method in which branch length information is ignored. Thus, to perform a squared change parsimony reconstruction, set all branch lengths equal to 1 and calculate a maximum likelihood solution.
+
+``` {r SQP, echo=T, message=F, warning=F}
+
+geotreeones <- compute.brlen(geotree, 1)
+SQPreconstruction <- ace(wingL, 
+                         geotreeones, 
+                         type = "continuous",
+                         method = "ML")
+```
+
+### HOW DO I USE THE OUTPUT FROM ACE?
+
+Each of the objects (for example: MLreconstruction) that we reconstructed above is a list of several elements. These are loglik (the log-likelihood of the most likely reconstruction), ace (the vector of reconstructed node values), sigma2 (a two element vector of the rate estimate and its standard error) and CI95, the 95% confidence intervals around the vector of reconstructed node values. Thus `MLreconstruction$ace` returns the vector of node values for wing length (wingL) that were reconstructed using ML, and `wingLfinal <- c(wingL, MLreconstruction$ace)` concatenates the original tip data with the reconstructed node data into a single vector
+
+``` {r MLreconstruction}
+MLreconstruction$ace
+```
+
+``` {r wingLfinal}
+wingLfinal <- c(wingL, MLreconstruction$ace)
+```
+
+### HOW DO I PLOT THE OUTPUT FROM ACE?
+
+Plot.phylo can scale symbols at tips and nodes of your tree to your character data. Try this to visualize the evolution of wing length (wingL) across the Geospiza phylogeny.
+
+``` {r plot, echo=T, warning=F, message=F}
+plot(geotree, show.tip.label=F)
+tiplabels(pch = 21, # pch=21 just tells plot.phylo which symbol to use
+          cex = (wingL-3.9)*10) 
+        # Note that cex argument determines the size at which the symbols will be plotted. 
+        # These have been rescaled so that the differences between species are visible on the screen. 
+        # Subtracting 3.9 and multiplying by 10 rescales the wingL to range from a little less than 1 to about 5, 
+        # which is a pretty good range for plotting.
+nodelabels(pch = 21, cex = (MLreconstruction$ace-3.9)*10)
+
+```
+### HOW DO I FIT A MODEL OF **CHARACTER CHANGE** TO CONTINUOUS DATA?
+
+While ace returns a rate of Brownian evolution (e.g. `MLreconstruction$sigma2`), that rate and its associated likelihood value (e.g., `MLreconstruction$loglik`) is conditioned on the specific ancestral states reconstructed by ace. More generally applicable model fits using Brownian motion and the Ornstein-Uhlenbeck model are available in the packages **ouch** and **geiger**. Please see [here](https://www.r-phylo.org/wiki/HowTo/ContinuousData) for more information.
+
+
+
+## RECONSTRUCTING ANCESTRAL STATES FOR DISCRETE VARIABLES
+
+The ace command in ape can reconstruct ancestral states for discrete characters using maximum likelihood.
+
+The next commands will set up a new discrete character vector `char1` and assign the names of the terminal taxa in the Geospiza phylogeny to the elements in the new vector. This is same vector used in the [example on modeling discrete character evolution in R](https://www.r-phylo.org/wiki/HowTo/InferringModelsForDiscreteData).
+
+``` {r intro-discrete, echo=T, message=F, warning=F}
+library(ape)
+geotree <- read.nexus("~/Documents/Github/mscTayLab/etc/input/geospiza.nex")
+geodata <- read.table("~/Documents/Github/mscTayLab/etc/input/geospiza.txt")
+
+char1<-c(1,1,1,1,1,0,1,0,0,1,0,1,1,1)
+names(char1) <- geotree$tip.label
+```
+
+You will need to choose among several different options for the matrix that specifies the transition probabilitites between the states of your discrete character. Ace offers shortcuts for:
+
+1. a one-parameter equal rates model (ER)
+2. a symmetric model (SYM) in which forwards and reverse transitions between states are constrained to be equal
+3. an all rates different matrix (ARD) where all possible transitions between states receive distinct parameters
+4. You can also specify your own matrix.
+
+Let's reconstruct ancestral states for the Geospiza data using the three standard methods (ER, SYM and ARD).
+
+``` {r model, echo=T,message=F,warning=F}
+ERreconstruction <- ace(char1, geotree, type="discrete", model="ER")
+
+SYMreconstruction <- ace(char1, geotree, type="discrete", model="SYM")
+
+ARDreconstruction <- ace(char1, geotree, type="discrete", model="ARD")
+```
+
+These commands issue lots of output, of which you are likely to be most interested in the **log likelihoods** and the **inferred transition rates**. You can access the log likelihoods and transition rates for each model as follows:
+
+``` {r model-output, echo=T,message=F,warning=F}
+ERreconstruction$loglik
+SYMreconstruction$loglik
+ARDreconstruction$loglik
+
+ERreconstruction$rates
+SYMreconstruction$rates
+ARDreconstruction$rates
+```
+
+**You should receive values of -9.00, -9.00 and -7.28 for log likelihoods. ER and SYM return a single rate of 51.6, while ARD returns a forward and reverse rate (6.00 and 17.9, respectively).**
+
+You may have noticed that the output for the ER model matches that of the SYM model. This is not surprising. For a binary character these models are identical, though they are distinct for characters with three or more states. For a three-state character, ER is a one parameter model, SYM a three parameter model, and ARD a six parameter model.
+
+### Which model should you prefer?
+
+In this example, the ARD model gives the highest likelihood. However, it also includes more parameters that the ER and SYM models, and it is well known that adding parameters to a model generally increases its likelihood. To determine whether the use of the more heavily parameterized model is appropriate, you should execute a **likelihood test**.
+
+Twice the difference in log likelihood between two models (known as the G statistic) is distributed as chi square, with degrees of freedom equal to the number of parameters that differ between the models. Thus a likelihood test of these models asks whether the difference in likelihoods is large enough to lie in the rightmost tail of the chisquare distribution, typically considered to be the largest 5% of values.
+
+The command `pchisq(value, df)` gives the percentage of the cumulative distribution function for chisquare that lies to the left of the given value for a desired degree of freedom(df). Thus, the following command gives the percentage of the chisquare distribution that lies to the right of the observed likelihood difference for the ER and ARD models (which differ by one parameter), given the Geospiza data.
+
+``` {r chi2, echo=T,message=F,warning=F}
+1-pchisq(2*abs(ERreconstruction$loglik - ARDreconstruction$loglik), 1)
+```
+
+Evaluation of the equation above yields the p-value for the likelihood test, in this case 0.064. This is not a significant result at a 5% error rate (though it is very close to significance), so we do not accept the more heavily parameterized ARD model, and instead choose the single-parameter ER model.
+
+For a single degree of freedom, the significance cutoff for the likelihood values lies at about 1.93 log-likelihood units of difference.
+
+### How do I define and use a custom transition model?
+
+What if you want to use a transition model that isn't hardwired into ace? You can do so by defining a custom transition matrix. For example, let's create a custom four-parameter matrix for a three state character, in which the the probability of transitioning from state 1 to 2 equals the probability of state 2 to 1 (parameter 1), the probability of transitioning from 1 to 3 equals the probability of transitioning from state 3 to 1 (parameter 2), but the probability of transitioning from state 2 to 3 (parameter 3) does not necessarily equal the probability of transitioning from state 3 to 2 (parameter 4).
+
+This syntax will set up such a transition matrix.
+
+``` {r manual-transition-matrix, echo=T,message=F,warning=F}
+transitions <- matrix (c(0, 1, 2, 1, 0, 4, 2, 3, 0), nrow=3)
+transitions
+```
+
+Let's now define a **three-state discrete character** for the Geospiza and apply this custom transition model to the ancestral state reconstruction.
+
+``` {r cus, echo=T,message=F,warning=F}
+char2<-c(3,3,1,2,1,1,3,3,3,3,2,2,2,3)
+names(char2)<- geotree$tip.label
+CUSreconstruction <- ace(char2, 
+                         geotree, 
+                         type="discrete", 
+                         model=transitions)
+```
+
+You should obtain a log likelihood of -11.49
+
+### Are there any caveats about the reconstruction of discrete characters that I should be aware of?
+
+**Yes**. Ace deals with this analysis by parameterizing each node within the phylogeny and reconstructing its ancestral state separately. This is a computationally intensive problem, and ace sometime returns spurious results when attempting a solution. If the returned log likelihood is tiny or enormous, or some of the reconstructed ancestral states have greater than 100% probability (or negative probability) at certain nodes, it is likely that ape is not reconstructing an accurate solution for the character in question. You are most likely to run into this issue when using complicated transition models or trees that imply many character state changes.
+
+-> You can see the probability of each of the possible ancestral states at each of the nodes by typing the following:
+``` {r cus2, echo=T,message=F,warning=F}
+CUSreconstruction$lik.anc
+```
+
+In other cases, the likelihood surface for the rates will be essentially flat, and you can place little confidence in the specific rates being reconstructed for each node. If the rate values are important in your application, check their standard errors:
+```{r se, echo=T,message=F,warning=F}
+CUSreconstruction$se
+```
+
+If the standard errors are very large, or represented by NaN (not a number), then you are dealing with a flat or nearly flat likelihood surface, and should not place any confidence in the reconstructed rates. This was true for the equal rates (ER) reconstruction of char1 above. Type `ERreconstruction$se` to see the standard error for that reconstruction. R should have returned NaN for this value.
+
+```{r se2, echo=T,message=F,warning=F}
+ERreconstruction$se
+```
