@@ -1,12 +1,8 @@
 ################################################################################
 ####  02_SBATCH_EXTRACTION  ####################################################
 ################################################################################
-
-library(tidyverse)
-library(rjson)
-library(data.table)
-
-source("")
+source("https://raw.githubusercontent.com/tlobnow/mscTayLab/main/scripts/functions.R")
+pacman::p_load(tidyverse, rjson, data.table)
 
 ################################################################################
 ### RUN SLURMEXTRACT FCT #######################################################

@@ -1,8 +1,8 @@
 ################################################################################
 ####  01_BROWSE_SEQS  ##########################################################
 ################################################################################
-library(pacman)
-pacman::p_load(tidyverse, DECIPHER, msa, Biostrings, bios2mds)
+
+source("https://raw.githubusercontent.com/tlobnow/mscTayLab/main/scripts/functions.R")
 
 # (1) USE KALIGN TO FACILITATE MSA OF FASTA FILES (or the aln_db fct if you want, but kalign gives pretty good results)
 

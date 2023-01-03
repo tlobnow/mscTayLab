@@ -95,9 +95,8 @@ slurmExtract <- function(JSON, SLURM, RANK, OUT) {
   write.table(EXTRACT, file = paste0(OUT ,".csv"),sep = ",", append = T, quote = F, row.names = F, col.names = F)
 }
 
-###
+
 ### FUNCTION TO EXTRACT FASTA-PARTS BASED ON PATTERN & EXTRACT THE LINKER LENGTHS ###
-###
 Trim_Loop <- function(consensus_DD, consensus_TIR, fasta_frame){
   for (x in 1:dim(fasta_frame)[1]) {
     subject <- fasta_frame$SEQUENCE[x]
@@ -128,4 +127,21 @@ Trim_Loop <- function(consensus_DD, consensus_TIR, fasta_frame){
     }
   }
   fasta_frame <<- fasta_frame
+}
+
+
+### FUNCTION TO TURN A CSV FILE INTO FASTA #####################################
+# FILE = XXX.csv
+# LOC_IN = CSV PATH
+# LOC_OUT = FASTA PATH
+csv2fasta <- function(FILE, LOC_IN, LOC_OUT) {
+  PREP <- read.csv(paste0(LOC_IN, FILE)) %>% 
+    mutate(PRE_FASTA_1 = ">", PRE_FASTA_2 = paste0(PRE_FASTA_1, Protein.name)) %>%
+    select(PRE_FASTA_2, Sequence)
+  
+  PREP <- PREP %>% 
+    pivot_longer(names_to = "DISCARD", values_to = "FASTA", cols = c(PRE_FASTA_2, Sequence)) %>%
+    select(-DISCARD)
+  
+  write.table(PREP, paste0(LOC_OUT,FILE, ".fasta"), quote = F, row.names = F, col.names = F)
 }
