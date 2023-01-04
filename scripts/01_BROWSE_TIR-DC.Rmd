@@ -1,153 +1,232 @@
 ---
-title: "01a_BROWSE_TIR-DC"
+title: "BROWSE TIR-DC FAMILIES"
 author: "Finn Lo"
 date: "2023-01-04"
 output: html_document
 ---
 
-```{r}
+```{r, echo=F, message=F, warning=F}
 source("https://raw.githubusercontent.com/tlobnow/mscTayLab/main/scripts/functions.R")
 library(htmltools)
 library(knitr)
+
+LOC     = "~/Documents/Github/mscTayLab/fasta_files/GERDOL/"
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
 ```
 
 
+### TIR-DC1
 
-```{r}
-# (1) SUPPLY THE INPUT INFORMATION FOR VISUALIZATION
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC1.png)
 
-LOC     = "~/Documents/Github/mscTayLab/fasta_files/GERDOL/"
+#### untrimmed TIR-DC1
+
+```{r DC_1-prep-untrimmed, message=F, warning=F, echo=F}
 FILE    = "Gerdol_2017_ecTIR-DC_1"
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-BROWSE  = T
-START = 130
-END   = 270
-
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
 dbConn <- dbConnect(SQLite(), ":memory:")
-Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE))
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
 desc <- dbGetQuery(dbConn, "select description from Seqs")
-Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn)
-Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn)
-aa <- SearchDB(dbConn)
-amplicon <- subseq(aa, start = START, end = END)
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
 names(amplicon) <- desc$description
 ```
 
-```{r, results = 'asis', echo = FALSE}
+```{r DC_1-vis-untrimmed, results = 'asis', echo = FALSE}
 TF <- tempfile()
 BrowseSeqs(amplicon, htmlFile = TF)
 cat(htmltools::includeHTML(TF))
 ```
 
-``` {r}
+#### trimmed TIR-DC1
 
-# BROWSE TIR-DC1
-FILE    = paste0("Gerdol_2017_ecTIR-DC_1")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC2
-FILE    = paste0("Gerdol_2017_ecTIR-DC_2")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-
-# BROWSE TIR-DC3
-FILE    = paste0("Gerdol_2017_ecTIR-DC_3")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.L.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.R.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC4
-FILE    = paste0("Gerdol_2017_ecTIR-DC_4")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC5
-FILE    = paste0("Gerdol_2017_ecTIR-DC_5")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-################################################################################
-
-# BROWSE TIR-DC6
-FILE    = paste0("Gerdol_2017_ecTIR-DC_6")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC7
-FILE    = paste0("Gerdol_2017_ecTIR-DC_7")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC8
-FILE    = paste0("Gerdol_2017_ecTIR-DC_8")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC9
-FILE    = paste0("Gerdol_2017_ecTIR-DC_9")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC10
-FILE    = paste0("Gerdol_2017_ecTIR-DC_10")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC11
-FILE    = paste0("Gerdol_2017_ecTIR-DC_11")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC12
-FILE    = paste0("Gerdol_2017_ecTIR-DC_12")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC13
-FILE    = paste0("Gerdol_2017_ecTIR-DC_13")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC14
-FILE    = paste0("Gerdol_2017_ecTIR-DC_14")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
-# BROWSE TIR-DC15
-FILE    = paste0("Gerdol_2017_ecTIR-DC_15")
-METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
-#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
-FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
-browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
-
+```{r DC_1-prep-trimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_1"
+system(command = paste0("~/Documents/Github/mscTayLab/scripts/run_kalign.sh ", FILE))
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim2.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
 ```
+
+```{r DC_1-vis-trimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+### TIR-DC2
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC2.png)
+
+#### untrimmed TIR-DC2
+
+```{r DC_2-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_2"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_2-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+#### trimmed TIR-DC2
+
+```{r DC_2-prep-trimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_2"
+system(command = paste0("[-f ", LOC, FILE,"/",FILE,".msa.",METHOD,".aln.trim2.fasta] || ~/Documents/Github/mscTayLab/scripts/run_kalign.sh ", FILE))
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim2.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_2-vis-trimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+### TIR-DC3
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC3.png)
+
+#### untrimmed TIR-DC3
+
+```{r DC_3-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_3"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_3-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+#### trimmed TIR-DC3-L
+
+```{r DC_3-prep-trimmed-L, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_3"
+system(command = paste0("[-f ", LOC, FILE,"/",FILE,".msa.",METHOD,".aln.trim2.R.fasta] || ~/Documents/Github/mscTayLab/scripts/run_kalign.sh ", FILE))
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim2.L.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_3-vis-trimmed-L, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+#### trimmed TIR-DC3-R
+
+```{r DC_3-prep-trimmed-R, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_3"
+system(command = paste0("[-f ", LOC, FILE,"/",FILE,".msa.",METHOD,".aln.trim2.R.fasta] || ~/Documents/Github/mscTayLab/scripts/run_kalign.sh ", FILE))
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim2.R.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_3-vis-trimmed-R, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+### TIR-DC4
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC4.png)
+
+#### untrimmed TIR-DC4
+
+```{r DC_4-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_4"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_4-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+### TIR-DC5
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC5.png)
+
+#### untrimmed TIR-DC5
+
+```{r DC_5-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_5"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_5-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+
+
