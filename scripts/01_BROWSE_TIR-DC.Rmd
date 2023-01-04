@@ -1,0 +1,153 @@
+---
+title: "01a_BROWSE_TIR-DC"
+author: "Finn Lo"
+date: "2023-01-04"
+output: html_document
+---
+
+```{r}
+source("https://raw.githubusercontent.com/tlobnow/mscTayLab/main/scripts/functions.R")
+library(htmltools)
+library(knitr)
+```
+
+
+
+```{r}
+# (1) SUPPLY THE INPUT INFORMATION FOR VISUALIZATION
+
+LOC     = "~/Documents/Github/mscTayLab/fasta_files/GERDOL/"
+FILE    = "Gerdol_2017_ecTIR-DC_1"
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+BROWSE  = T
+START = 130
+END   = 270
+
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE))
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn)
+aa <- SearchDB(dbConn)
+amplicon <- subseq(aa, start = START, end = END)
+names(amplicon) <- desc$description
+```
+
+```{r, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+``` {r}
+
+# BROWSE TIR-DC1
+FILE    = paste0("Gerdol_2017_ecTIR-DC_1")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC2
+FILE    = paste0("Gerdol_2017_ecTIR-DC_2")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+
+# BROWSE TIR-DC3
+FILE    = paste0("Gerdol_2017_ecTIR-DC_3")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.L.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.R.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC4
+FILE    = paste0("Gerdol_2017_ecTIR-DC_4")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC5
+FILE    = paste0("Gerdol_2017_ecTIR-DC_5")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+################################################################################
+
+# BROWSE TIR-DC6
+FILE    = paste0("Gerdol_2017_ecTIR-DC_6")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC7
+FILE    = paste0("Gerdol_2017_ecTIR-DC_7")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC8
+FILE    = paste0("Gerdol_2017_ecTIR-DC_8")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC9
+FILE    = paste0("Gerdol_2017_ecTIR-DC_9")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC10
+FILE    = paste0("Gerdol_2017_ecTIR-DC_10")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC11
+FILE    = paste0("Gerdol_2017_ecTIR-DC_11")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC12
+FILE    = paste0("Gerdol_2017_ecTIR-DC_12")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC13
+FILE    = paste0("Gerdol_2017_ecTIR-DC_13")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC14
+FILE    = paste0("Gerdol_2017_ecTIR-DC_14")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+# BROWSE TIR-DC15
+FILE    = paste0("Gerdol_2017_ecTIR-DC_15")
+METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
+#FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta") # load aln file for viewing
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.trim.fasta") # load aln file for viewing
+browse(FASTA = FASTA, BROWSE = F, HIGHLIGHT = NA, START = NA, END = NA)
+
+```

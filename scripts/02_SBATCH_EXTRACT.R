@@ -1,8 +1,53 @@
 ################################################################################
 ####  02_SBATCH_EXTRACTION  ####################################################
 ################################################################################
-source("https://raw.githubusercontent.com/tlobnow/mscTayLab/main/scripts/functions.R")
-pacman::p_load(tidyverse, rjson, data.table)
+
+library(tidyverse)
+library(data.table)
+library(rjson)
+
+slurmExtract <- function(JSON, SLURM, RANK, OUT) {
+  result <- rjson::fromJSON(file = JSON)
+  order <- as.data.frame(result[["order"]])
+  colnames(order)[colnames(order)%in%'result[["order"]]'] <- "ORDER"
+  order$ORDER[grep("*_recycled_*", order$ORDER)] <- "F"
+  order <- order %>% filter(ORDER != "F")
+  top <- order$ORDER[RANK]
+  SLURM        <- read.table(SLURM, sep = "\t")
+  SLURM        <- SLURM %>% mutate(RECYCLED = F, TOP = F, INFO = F)
+  SLURM$RECYCLED[grep("*_recycled_*", SLURM$V1)] <- T
+  SLURM$TOP[grep(top, SLURM$V1)] <- T
+  SLURM$INFO[grep("*Info:*", SLURM$V1)] <- T
+  keep = which(SLURM$RECYCLED == F & SLURM$TOP == T & SLURM$INFO == T) + 1
+  SLURM1       <- SLURM %>% filter(RECYCLED == F & TOP == T & INFO == T) %>% select(V1)
+  SLURM2       <- SLURM %>% slice(keep) %>% select(V1)
+  SLURM2       <- separate(data = SLURM2, col = V1,   sep = " = ", into = c("V1", "NUM_CLUSTERS", "CLUSTER_SIZES", "CLUSTERS"), convert = T)
+  SLURM2$NUM_CLUSTERS  <- as.numeric(unlist(lapply(strsplit(SLURM2$NUM_CLUSTERS, ", ", fixed=TRUE), function(x) return(x[1]))))
+  SLURM2$NUM_CLUSTERS  <- str_replace(SLURM2$NUM_CLUSTERS, ",", "_")
+  SLURM2$NUM_CLUSTERS  <- str_replace(SLURM2$NUM_CLUSTERS, " ", "_")
+  SLURM2$NUM_CLUSTERS  <- str_replace(SLURM2$NUM_CLUSTERS, "/", "_")
+  SLURM2$CLUSTER_SIZES <- unlist(lapply(strsplit(SLURM2$CLUSTER_SIZES, ",  clusters", fixed=TRUE), function(x) return(x[1])))
+  SLURM2$CLUSTER_SIZES <- str_replace(SLURM2$CLUSTER_SIZES, ",", "_")
+  SLURM2$CLUSTER_SIZES <- str_replace(SLURM2$CLUSTER_SIZES, " ", "_")
+  SLURM2$CLUSTER_SIZES <- str_replace(SLURM2$CLUSTER_SIZES, "/", "_")
+  SLURM2$CLUSTERS      <- str_replace(SLURM2$CLUSTERS, ",", "_")
+  SLURM2$CLUSTERS      <- str_replace(SLURM2$CLUSTERS, " ", "_")
+  SLURM1        <- separate(data = SLURM1, col = V1,   sep = ",",   into = c("NAME", "TOL", "pLDDT", "pTM", "piTM", "iScore", "iRes"), convert = T)
+  SLURM1        <- separate(data = SLURM1, col = NAME, sep = " ",   into = c("INFO", "FILE", "MODEL", "PERFORMED", "X", "CYCLE"), convert = T)
+  SLURM1$TOL    <- as.numeric(unlist(lapply(strsplit(SLURM1$TOL,   "= ", fixed=TRUE), function(x) return(x[2]))))
+  SLURM1$pLDDT  <- as.numeric(unlist(lapply(strsplit(SLURM1$pLDDT, "= ", fixed=TRUE), function(x) return(x[2]))))
+  SLURM1$pTM    <- as.numeric(unlist(lapply(strsplit(SLURM1$pTM,   "= ", fixed=TRUE), function(x) return(x[2]))))
+  SLURM1$piTM   <- as.numeric(unlist(lapply(strsplit(SLURM1$piTM,  "= ", fixed=TRUE), function(x) return(x[2]))))
+  SLURM1$iScore <- as.numeric(unlist(lapply(strsplit(SLURM1$iScore,"= ", fixed=TRUE), function(x) return(x[2]))))
+  SLURM1        <- separate(data = SLURM1, col = iRes, sep =  "iCnt = ", into = c("iRes", "iCnt"), convert = T)
+  SLURM1$iRes   <- as.numeric(unlist(lapply(strsplit(SLURM1$iRes,  "= ", fixed=TRUE), function(x) return(x[2]))))
+  SLURM1$iCnt   <- as.numeric(SLURM1$iCnt)
+  SLURM         <- bind_cols(SLURM1, SLURM2)
+  EXTRACT       <- SLURM %>% mutate(RANKING = RANK, FILE_MODEL = paste(FILE, MODEL, sep = "_")) %>% select(FILE, MODEL, TOL, pLDDT, pTM, piTM, iScore, iRes, iCnt, RANKING, FILE_MODEL, NUM_CLUSTERS)
+  EXTRACT$MODEL <- unlist(lapply(strsplit(EXTRACT$MODEL, "_multimer", fixed=TRUE), function(x) return(x[1])))
+  write.table(EXTRACT, file = paste0(OUT ,".csv"),sep = ",", append = T, quote = F, row.names = F, col.names = F)
+}
+
 
 ################################################################################
 ### RUN SLURMEXTRACT FCT #######################################################
@@ -96,13 +141,19 @@ pacman::p_load(tidyverse, rjson, data.table)
 #   slurmExtract(JSON = JSON, SLURM = SLURM, RANK = RANK, OUT = OUT)
 # }
 # for (j in 1:5) {
-#   JSON  = paste0("/Volumes/TAYLOR-LAB/Finn/RESULTS/DHF91_x6/ranking.json")
-#   SLURM = paste0("/Volumes/TAYLOR-LAB/Finn/RESULTS/DHF91_x6/slurm.out")
+#   JSON  = paste0("/Volumes/TAYLOR-LAB/Finn/RESULTS/x6/MyD88_SPL1_FL_x6/ranking.json")
+#   SLURM = paste0("/Volumes/TAYLOR-LAB/Finn/RESULTS/x6/MyD88_SPL1_FL_x6/slurm.out")
 #   RANK = j
 #   OUT = '~/Documents/Github/mscTayLab/csv/sbatch_extract_x6'
 #   slurmExtract(JSON = JSON, SLURM = SLURM, RANK = RANK, OUT = OUT)
 # }
-
+# for (j in 1:5) {
+#   JSON  = paste0("/Volumes/TAYLOR-LAB/Finn/RESULTS/x6/MyD88_SPL2_short_x6/ranking.json")
+#   SLURM = paste0("/Volumes/TAYLOR-LAB/Finn/RESULTS/x6/MyD88_SPL2_short_x6/slurm.out")
+#   RANK = j
+#   OUT = '~/Documents/Github/mscTayLab/csv/sbatch_extract_x6'
+#   slurmExtract(JSON = JSON, SLURM = SLURM, RANK = RANK, OUT = OUT)
+# }
 
 ################################################################################
 ### VISUALIZATION ##############################################################
@@ -1046,10 +1097,10 @@ SE$BURIED[SE$FILE_MODEL %in% "bdld3_84_x6_model_4"] <- 5
 SE$BURIED[SE$FILE_MODEL %in% "bdld3_84_x6_model_5"] <- 5
 
 SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_1"] <- 'FILAMENT'
-SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_2"] <- 'FILAMENT'
+SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_2"] <- 'linear'
 SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_3"] <- 'FILAMENT'
-SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_4"] <- 'FILAMENT'
-SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_5"] <- 'FILAMENT'
+SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_4"] <- 'linear'
+SE$VIS[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_5"] <- 'linear'
 SE$BURIED[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_1"] <- 9
 SE$BURIED[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_2"] <- 4
 SE$BURIED[SE$FILE_MODEL %in% "MYD88-DD_slim3_x6_model_3"] <- 6
@@ -1077,6 +1128,28 @@ SE$BURIED[SE$FILE_MODEL %in% "DHF91_x6_model_2"] <- 0
 SE$BURIED[SE$FILE_MODEL %in% "DHF91_x6_model_3"] <- 0
 SE$BURIED[SE$FILE_MODEL %in% "DHF91_x6_model_4"] <- 3
 SE$BURIED[SE$FILE_MODEL %in% "DHF91_x6_model_5"] <- 0
+
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_1"] <- 'OTHER'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_2"] <- 'none'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_3"] <- 'FILAMENT'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_4"] <- 'linear'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_5"] <- 'linear'
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_1"] <- 1
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_2"] <- 0
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_3"] <- 10
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_4"] <- 5
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL2_short_x6_model_5"] <- 5
+
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_1"] <- 'linear'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_2"] <- 'FILAMENT'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_3"] <- 'none'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_4"] <- 'OTHER'
+SE$VIS[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_5"] <- 'linear'
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_1"] <- 5
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_2"] <- 5
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_3"] <- 0
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_4"] <- 1
+SE$BURIED[SE$FILE_MODEL %in% "MyD88_SPL1_FL_x6_model_5"] <- 4
 
 # SE$VIS[SE$FILE_MODEL %in% "XXXXXXX_x6_model_1"] <- 'EVAL'
 # SE$VIS[SE$FILE_MODEL %in% "XXXXXXX_x6_model_2"] <- 'EVAL'
