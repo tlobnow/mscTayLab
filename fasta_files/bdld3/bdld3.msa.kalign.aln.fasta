@@ -18,8 +18,8 @@
 ------------------------------------------------------------
 --------------------------------------------------RLSLFLNPRT
 PVAADWT----LLAEEMG--FEYLEIREL-----ETRPDPTRSLLDAWQGRSGASV----
--G--RLLELLALLDREDILKELKS-R-----------ISR--------------------
------IEE---------DCQKYL-GKQQNQES----------------------------
+-G--RLLELLALLDREDILKELKS-R-----------ISRI-------------------
+------EE---------DCQKYL-GKQQNQESE---------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -62,9 +62,9 @@ PVAADWT----LLAEEMG--FEYLEIREL-----ETRPDPTRSLLDAWQGRSGASV----
 ------------------------------------------------------------
 ------------------------------------------------------------
 --------------------------------------------------RLSLFLNVRT
-QVAADWT----ALAEEMD--FEYLEIRQL-----ETQADPTGRLLDAWQGR--ASV----
--G--RLLELLTKLGRDDVLLELGP-S----------------------------------
------IEE---------DCQKYI-LKQQQEEA----------------------------
+QVAADWT----ALAEEMD--FEYLEIRQL-----ETQADPTGRLLDAWQGRPGASV----
+-G--RLLELLTKLGRDDVLLELGP-S-----------I----------------------
+------EE---------DCQKYI-LKQQQEEAE---------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -178,7 +178,7 @@ IREQLRERAELIRQSHYNGPSPP----------PPP-GP--F-P-GPFPGKVKIAFCDR-
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------------------------------------
->tr|A0A142XB67|A0A142XB67_9BACT 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Gemmata sp. SH-PL17 OX=1630693 GN=VT84_06335 PE=4 SV=1
+>tr|A0A142XB67|A0A142XB67_9BACT 5-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Gemmata sp. SH-PL17 OX=1630693 GN=VT84_06335 PE=4 SV=1
 MLAASDIRGSVTFGILTVRSD---EYTAVLEHFPNR--------ETVKGRVFY-------
 -EYSQQEAADGKRVGIAVARSLEQGPGAAHDLTRDLIEDLDPDWILVVGIAGGLPEDDYS
 LGDVLL-------ASRIYDFSVSAEILDGEQHQREWS-------LGGGAVHPDVAAVLGA
@@ -789,7 +789,7 @@ ALKIDTVTQPEMSNQN---DVQM----------PTQ-NDKET-S-LVLSGKIKIKFCQR-
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------------------------------------
->tr|A0A6P0V0N3|A0A6P0V0N3_9CYAN 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Symploca sp. SIO1C2 OX=2607769 GN=F6J96_11435 PE=4 SV=1
+>tr|A0A6P0V0N3|A0A6P0V0N3_9CYAN 5-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Symploca sp. SIO1C2 OX=2607769 GN=F6J96_11435 PE=4 SV=1
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
@@ -1059,7 +1059,7 @@ VYKYHWRQAKKV------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------
 -------------------------------------------------------
->tr|A0A6M0G9Y0|A0A6M0G9Y0_9CYAN 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Symploca sp. SIO2E6 OX=2607809 GN=F6K47_33365 PE=4 SV=1
+>tr|A0A6M0G9Y0|A0A6M0G9Y0_9CYAN 5-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Symploca sp. SIO2E6 OX=2607809 GN=F6K47_33365 PE=4 SV=1
 ------------------------------------------------------------
 ------------------------------------------------------------
 ------------------------------------------------------------

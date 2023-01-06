@@ -14,8 +14,12 @@ LOC     = "~/Documents/Github/mscTayLab/fasta_files/GERDOL/"
 METHOD  = "kalign" #c(Muscle, ClustalW, ClustalOmega, kalign)
 ```
 
+~[](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/Gerdol_TIR-DC_tree.png)
+
 
 ### TIR-DC1
+
+The first novel TIR-DC family identified in this comparative survey comprises 400-500 aa long transmembrane proteins characterized by two C-terminal transmembrane domains and a N- terminal (intracellular) TIR domain (Fig. 6). Just a dozen amino acidic residues connect the two alpha-helical regions, leaving a very small portion of the polypeptidic chain exposed to the extracellular medium. As the members of this family completely lack ectodo- mains, they cannot act as receptors and they may be reasonably involved in the regulation of membrane-bound TIR-DC receptors. This family was only found in bivalves pertaining to the Pter- iomorphia subclass (Supplementary File 1), and in the polychaete worm C. teleta (Fig. 2). Furthermore, based on the presence of three distinct genes in C. gigas, it appears to be multi-genic.
 
 ![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC1.png)
 
@@ -40,6 +44,9 @@ BrowseSeqs(amplicon, htmlFile = TF)
 cat(htmltools::includeHTML(TF))
 ```
 
+#### Performance in 
+
+
 #### trimmed TIR-DC1
 
 ```{r DC_1-prep-trimmed, message=F, warning=F, echo=F}
@@ -62,7 +69,14 @@ BrowseSeqs(amplicon, htmlFile = TF)
 cat(htmltools::includeHTML(TF))
 ```
 
+
+
+
+
+
 ### TIR-DC2
+
+DC2/4 share nearly identical domain ar- chitecture, with a unique N-terminal TIR domain (Fig. 5), and are closely related based on Bayesian inference (Fig. 6). Family 4 comprises short proteins of ~130e150 aa without any C-terminal extension, whereas family 2 members display C-terminal exten- sions of variable length, with no recognizable conserved domain or structural fold, as long as ~800 aa in the giant floater P. grandis. Family 2 was found to be present as a single copy gene in oyster, as well as in gastropod molluscs (see Fig. 2). On the other hand, family 4 genes are taxonomically restricted to Bivalvia and they further appear to have a spotty distribution in this class, given the absence of an ecTIR-DC 4 gene in C. gigas.
 
 ![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC2.png)
 
@@ -110,6 +124,8 @@ cat(htmltools::includeHTML(TF))
 ```
 
 ### TIR-DC3
+
+This protein family is structurally characterized by a low complexity N-terminus, followed by ARM repeats and a TIR domain (Fig. 5). In addition, these proteins have a 100 aa-long C-terminal extension which contains a SAM motif, canonical in lower in- vertebrates and highly degenerated in Lophotrochozoa and basal Deuterostomes. EcTIR-DC 3 genes have an ancient origin, as they were found in early-branching phyla such as Placozoa and Cnidaria. This type of cytosolic TIR-DC proteins, absent in vertebrates, can be found in all protostomes and basal deuterostomes up to echino- derms, amphioxius and tunicates, with the notable exception of Ecdysozoa (Fig. 2). Curiously, they could be also identified in some flatworms, which completely lack TLRs and other membrane- bound TIR-DC proteins, a fact which suggests that their role might be not tied to TLR/IL-1R signalling. In C. gigas, these TIR-DC proteins are also expressed at relevant levels in larval stages (see section 3.21). In summary, ecTIR-DC 3 proteins appear to be among the most conserved and widespread intracellular TIR-DC families in invertebrates as well as in bivalves (Supplementary File 1). Four genes pertaining to this family are present in the Pacific oyster.
 
 ![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC3.png)
 
@@ -180,6 +196,8 @@ cat(htmltools::includeHTML(TF))
 
 ### TIR-DC4
 
+DC2/4 share nearly identical domain ar- chitecture, with a unique N-terminal TIR domain (Fig. 5), and are closely related based on Bayesian inference (Fig. 6). Family 4 comprises short proteins of ~130e150 aa without any C-terminal extension, whereas family 2 members display C-terminal exten- sions of variable length, with no recognizable conserved domain or structural fold, as long as ~800 aa in the giant floater P. grandis. Family 2 was found to be present as a single copy gene in oyster, as well as in gastropod molluscs (see Fig. 2). On the other hand, family 4 genes are taxonomically restricted to Bivalvia and they further appear to have a spotty distribution in this class, given the absence of an ecTIR-DC 4 gene in C. gigas.
+
 ![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC4.png)
 
 #### untrimmed TIR-DC4
@@ -205,6 +223,8 @@ cat(htmltools::includeHTML(TF))
 
 ### TIR-DC5
 
+The structural organization of ecTIR-DC 5 proteins comprises three distinct TIR domains, with the first and the second one being separated by a SAM motif (Fig. 5). The three TIR domains cluster separately in the phylogenetic tree, even though the third one is highly similar to the TIR domains of ecTIR-DC family 6 and 9 (Fig. 6). EcTIR-DC 5 proteins represent an evolutionary conserved family with a broad taxonomic distribution that likely emerged early in metazoan evolution, as it could be detected in Placozoa, Cnidaria and in many Protostomes (with the exception of Ecdysozoa, Pla- tyhelminthes, Rotifera, Cephalopoda and Clitellata) (Fig. 2). The function of these intracellular proteins might be not connected to TLR/IL-1R signalling, in agreement with their high expression levels during embryonic development (see section 3.21). Although this family is also found in basal deuterostomes, it was likely lost in vertebrates. No more than a single ecTIR-DC 5 gene could be identified in the genomes and transcriptomes of any of the species analysed.
+
 ![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC5.png)
 
 #### untrimmed TIR-DC5
@@ -220,6 +240,8 @@ Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
 aa <- SearchDB(dbConn, verbose = F)
 amplicon <- subseq(aa)
 names(amplicon) <- desc$description
+
+WSASDLQEWLFTLGIKEFYRQSFAENLVDGFLLMSMTDQDMIQQLGTDSRVVRKKIMQQILVTL
 ```
 
 ```{r DC_5-vis-untrimmed, results = 'asis', echo = FALSE}
@@ -227,6 +249,323 @@ TF <- tempfile()
 BrowseSeqs(amplicon, htmlFile = TF)
 cat(htmltools::includeHTML(TF))
 ```
+
+################################################################################
+#### add TIR-DC5 trimmed #######################################################
+################################################################################
+
+### TIR-DC6
+
+Members of this family possess a long N-terminal region with a series of Arm repeats, a single central DEATH domain and two consecutive C-terminal TIR domains (Fig. 5) which appear to be duplicated and highly similar to those found in ecTIR-DC family 9 and to the third domain of ecTIR-DC family 5 proteins (Fig. 6). Owing to the relevant size of these proteins (>1000 aa) and their poor expression levels in adult individuals, the full length sequence of only three ecTIR-DC 6 proteins could be retrieved in bivalve molluscs, along with many fragments (Supplementary File 1). However, these TIR-DC proteins show a remarkable evolutionary conservation, from Lophotrochozoa (rotifers, segmented worms and gastropods) to basal deuterostomes (echinoderms, acorn worms and amphioxus) (Fig. 2). Although their function is unknown, their presence in rotifers and their expression during embryonic development (see section 3.21) suggest that they are not involved in TLR/IL-1R signalling, like in the case of ecTIR-DC families 3 and 5.
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC6.png)
+
+
+#### untrimmed TIR-DC6
+
+```{r DC_6-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_6"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_6-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC6 trimmed #######################################################
+################################################################################
+
+### TIR-DC7
+
+These large proteins (700-1100 aa) display a variable number of N-terminal tetratricopeptide repeats (TPR) followed a C-terminal TIR domain (Fig. 5). EcTIR-DC 7 proteins were mostly detected in Pteriomorphia bivalves (with 2 distinct genes in C. gigas), bra- chiopods, early-branching deuterostomes and, with a very limited sequence homology, also in gastropod and cephalopod molluscs (Fig. 2). As TPRs are often used to build large scaffolds which facilitate the assembly of multiprotein complexes (D'Andrea and Regan, 2003), ecTIR-DC 7 members could be involved in the as- sembly of intracellular complexes to mediate signal transduction. The TIR domain of ecTIR-DC 7 proteins seems to be somewhat related to that of membrane-bound receptors with EGF ectodo- mains (Fig. 6).
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC7.png)
+
+
+#### untrimmed TIR-DC7
+
+```{r DC_7-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_7"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_7-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC7 trimmed #######################################################
+################################################################################
+
+### TIR-DC8
+
+EcTIR-DC 8 proteins possess two consecutive TIR domains, highly similar to each other (Fig. 6), and a third one which is degenerated and barely recognizable (Fig. 5). The structural modelling analysis performed with HHpred (So€ding et al., 2005) permitted to identify a well-conserved Macro/A1pp domain in the N-terminal region, which might serve as an ADP-ribose binding domain (Neuvonen and Ahola, 2009). Although just a few full- length sequences could be recognized in bivalves, this TIR-DC family appears to be very ancient and conserved across several distantly related phyla, from placozoans, to anthozoans, to the large majority of lophotrochozoans, and it is retained also in hemi- chordates and echinoderms (Fig. 2). Interestingly, the single-copy TIR-DC 8 gene of C. gigas was consistently expressed at high levels since the very early stages of larval development (section 3.21). 
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC8.png)
+
+
+#### untrimmed TIR-DC8
+
+```{r DC_8-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_8"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_8-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC8 trimmed #######################################################
+################################################################################
+
+### TIR-DC9
+
+Most of the intracellular TIR-DCs described so far are relatively small proteins (<1000 aa). However, a few exceptions exist, as we could identify at least two evolutionarily conserved families of large TIR-DC proteins, namely ecTIR-DC 9 and ecTIR-DC 14. The former is characterized by a N-terminal Neuralized (PF07177) domain of unknown function, common in proteins involved in neuroblast differentiation, followed by a large central region corresponding to the tandem of ROC (IPR020859) and COR (IPR032171) domains, which characterize a family of complex heterogeneous GTPases with various regulatory functions (Deng et al., 2008). In ecTIR-DC 9 proteins, encoded by a single-copy gene in C. gigas, the TIR domain is associated with a DEATH domain and localized at the protein C-terminus (Fig. 5). This family has a relatively wide taxonomical distribution, as it could be identified in cnidarians (N. vectensis, despite the absence of the Neuralized domain), molluscs, brachiopods, echinoderms, hemi- chordates, and in some arthropods (Fig. 2). The TIR domain of ecTIR-DC family 9 proteins appear to be evolutionarily connected to the third domain of ecTIR-DC family 5 proteins as well as to the two domains of ec-TIR-DC family 6 proteins (Fig. 6). The ecTIR-DC 14 family is an even more complex group, which comprises very large proteins longer than 3000 amino acids. The two C. gigas genes pertaining to this family encode proteins which diverge in the N-terminal region, which is quite disordered and contains different domains: in the first one (ecTIR-DC 14 type I) LRRs are associated to two SPRY domains, while in the second one (ecTIR-DC tye II) LRRs are associated to a C2 domain. Like ecTIR-DC 9, a ROC/COR tandem is also present, followed in this case by two consecutive and degenerated TIR domains. Although the N-termi- nal region is divergent in other metazoans, the LRR/ROC/COR/2xTIR module appears to be evolutionarily ancient, as it was detected in T. adherens, in most lophotrochozoans and in amphioxus, and similar sequences were also found in the flagellate unicellular eu- karyotes Thecamonas trahens and Guillardia theta. While the function of these TIR-DC proteins is unknown, they were all highly expressed in the early stages of development of oyster larvae and still produced, at lower levels, in most adult tis- sues (see section 3.21). Although ecTIR-DC sequences were found in many different bivalve species, due to the relevant length of the encoding mRNAs we could mostly detect sequence fragments in de novo assembled transcriptomes (Supplementary File 1).
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC9.png)
+
+
+#### untrimmed TIR-DC9
+
+```{r DC_9-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_9"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_9-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC9 trimmed #######################################################
+################################################################################
+
+### TIR-DC10
+
+The members of this TIR-DC family are characterized by a N- terminal TIR domain followed by two BIR (Baculovirus Inhibitor of apoptosis protein Repeat) domains (Fig. 5), that are commonly found in proteins related to apoptotic processes and innate im- munity, such as NAIP-type NOD-like receptors. Members of this TIR-DC family were exclusively found in Bivalvia and, more in detail, just in a few distantly related species (Unionoida and Mytiloida, see Supplementary File 1), possibly reflecting a poor constitutive expression or a spotty taxonomic distribution, which is supported by their absence in the C. gigas genome. In addition, the TIR domain of ecTIR-DC 10 proteins resulted to be quite divergent across species (Fig. 6), possibly indicating a non-orthologous origin or relaxed evolutionary constraints.
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC10.png)
+
+
+#### untrimmed TIR-DC10
+
+```{r DC_10-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_10"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_10-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC10 trimmed #######################################################
+################################################################################
+
+### TIR-DC11
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC11.png)
+
+
+#### untrimmed TIR-DC11
+
+```{r DC_11-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_11"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_11-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC11 trimmed #######################################################
+################################################################################
+
+### TIR-DC12
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC12.png)
+
+
+#### untrimmed TIR-DC12
+
+```{r DC_12-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_12"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_12-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC12 trimmed #######################################################
+################################################################################
+
+### TIR-DC13
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC13.png)
+
+
+#### untrimmed TIR-DC13
+
+```{r DC_13-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_13"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_13-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC13 trimmed #######################################################
+################################################################################
+
+### TIR-DC14
+
+Most of the intracellular TIR-DCs described so far are relatively small proteins (<1000 aa). However, a few exceptions exist, as we could identify at least two evolutionarily conserved families of large TIR-DC proteins, namely ecTIR-DC 9 and ecTIR-DC 14. The former is characterized by a N-terminal Neuralized (PF07177) domain of unknown function, common in proteins involved in neuroblast differentiation, followed by a large central region corresponding to the tandem of ROC (IPR020859) and COR (IPR032171) domains, which characterize a family of complex heterogeneous GTPases with various regulatory functions (Deng et al., 2008). In ecTIR-DC 9 proteins, encoded by a single-copy gene in C. gigas, the TIR domain is associated with a DEATH domain and localized at the protein C-terminus (Fig. 5). This family has a relatively wide taxonomical distribution, as it could be identified in cnidarians (N. vectensis, despite the absence of the Neuralized domain), molluscs, brachiopods, echinoderms, hemi- chordates, and in some arthropods (Fig. 2). The TIR domain of ecTIR-DC family 9 proteins appear to be evolutionarily connected to the third domain of ecTIR-DC family 5 proteins as well as to the two domains of ec-TIR-DC family 6 proteins (Fig. 6). The ecTIR-DC 14 family is an even more complex group, which comprises very large proteins longer than 3000 amino acids. The two C. gigas genes pertaining to this family encode proteins which diverge in the N-terminal region, which is quite disordered and contains different domains: in the first one (ecTIR-DC 14 type I) LRRs are associated to two SPRY domains, while in the second one (ecTIR-DC tye II) LRRs are associated to a C2 domain. Like ecTIR-DC 9, a ROC/COR tandem is also present, followed in this case by two consecutive and degenerated TIR domains. Although the N-termi- nal region is divergent in other metazoans, the LRR/ROC/COR/2xTIR module appears to be evolutionarily ancient, as it was detected in T. adherens, in most lophotrochozoans and in amphioxus, and similar sequences were also found in the flagellate unicellular eu- karyotes Thecamonas trahens and Guillardia theta. While the function of these TIR-DC proteins is unknown, they were all highly expressed in the early stages of development of oyster larvae and still produced, at lower levels, in most adult tis- sues (see section 3.21). Although ecTIR-DC sequences were found in many different bivalve species, due to the relevant length of the encoding mRNAs we could mostly detect sequence fragments in de novo assembled transcriptomes (Supplementary File 1).
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC14.png)
+
+
+#### untrimmed TIR-DC14
+
+```{r DC_14-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_14"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_14-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC14 trimmed #######################################################
+################################################################################
+
+### TIR-DC15
+
+![](https://raw.githubusercontent.com/tlobnow/mscTayLab/main/figures/TIR-DC15.png)
+
+
+#### untrimmed TIR-DC15
+
+```{r DC_15-prep-untrimmed, message=F, warning=F, echo=F}
+FILE    = "Gerdol_2017_ecTIR-DC_15"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn <- dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc <- dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa <- SearchDB(dbConn, verbose = F)
+amplicon <- subseq(aa)
+names(amplicon) <- desc$description
+```
+
+```{r DC_15-vis-untrimmed, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```
+
+################################################################################
+#### add TIR-DC15 trimmed #######################################################
+################################################################################
+
 
 
 

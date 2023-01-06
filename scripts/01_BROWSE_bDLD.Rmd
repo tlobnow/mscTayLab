@@ -1,0 +1,51 @@
+---
+title: "BROWSE bDLD"
+author: "Finn Lobnow"
+date: "2023-01-04"
+output: html_document
+---
+
+``` {r setup, echo=F, message=F, warning=F}
+source("https://raw.githubusercontent.com/tlobnow/mscTayLab/main/scripts/functions.R")
+library(data.table)
+
+LOC       = "~/Documents/Github/mscTayLab/fasta_files/"
+FILE      = "bdld3"
+```
+
+``` {r prep, echo=F, message=F, warning=F}
+DD_MOUSE  <- data.frame(V1 = c(">MyD88-DD_MOUSE", "RLSLFLNPRTPVAADWTLLAEEMGFEYLEIRELETRPDPTRSLLDAWQGRSGASVGRLLELLALLDREDILKELKSRISRIEEDCQKYLGKQQNQESE"))
+DD_HUMAN  <- data.frame(V1 = c(">MyD88-DD_HUMAN", "RLSLFLNVRTQVAADWTALAEEMDFEYLEIRQLETQADPTGRLLDAWQGRPGASVGRLLELLTKLGRDDVLLELGPSIEEDCQKYILKQQQEEAE"))
+TEST_FILE <- read.table(paste0(LOC, FILE,"/",FILE,".fasta"), sep = "\t")
+
+FASTA     <- bind_rows(DD_MOUSE, DD_HUMAN, TEST_FILE)
+#FASTA     <- readAAStringSet(paste0(LOC,FILE,"/",FILE,".adj.fasta"))
+#NMS       <- unique(FASTA@ranges@NAMES)  # gets rid of species duplicates, better overview, but loss of info, if you want to keep all individuals, then unhash the next line
+
+FILE_PATH <- paste0(LOC, FILE,"/",FILE,".adj.fasta")
+write.table(FASTA, FILE_PATH, quote = F, row.names = F, col.names = F)
+```
+
+``` {r kalign, echo=F, message=F, warning=F, include=F}
+FASTA  <- readAAStringSet(paste0(LOC,FILE,"/",FILE,".adj.fasta"))
+system(command = paste0("~/Documents/Github/mscTayLab/scripts/bdld_kalign.sh ", FILE))
+```
+
+``` {r prep4vis, results = 'asis', echo = FALSE}
+METHOD  = "kalign"
+FASTA   = paste0(LOC,FILE,"/",FILE,".msa.",METHOD,".aln.fasta")
+dbConn  = dbConnect(SQLite(), ":memory:")
+Seqs2DB(FASTA, "FASTA", dbConn, paste0(FILE), verbose = F)
+desc    = dbGetQuery(dbConn, "select description from Seqs")
+Add2DB(data.frame(desc=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+Add2DB(data.frame(identifier=desc, stringsAsFactors=FALSE), dbConn, verbose = F)
+aa       = SearchDB(dbConn, verbose = F)
+amplicon = subseq(aa, start = 1071, end = 1200)
+names(amplicon) <- desc$description
+```
+
+```{r visDB, results = 'asis', echo = FALSE}
+TF <- tempfile()
+BrowseSeqs(amplicon, htmlFile = TF)
+cat(htmltools::includeHTML(TF))
+```

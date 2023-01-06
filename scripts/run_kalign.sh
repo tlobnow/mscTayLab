@@ -3,10 +3,12 @@
 #parallel 'sh run_kalign.sh {}' :::: ~/Documents/Github/mscTayLab/fasta_files/INDS.txt
 
 FILE=$1
+
+#FILE=Gerdol_2017_ecTIR-DC_5
 EXEC=~/Documents/Github/mscTayLab/fasta_files/GERDOL/${FILE}/${FILE}
 
 # FOR TIR-DC prep
-#/Users/finnlo/opt/anaconda3/pkgs/kalign2-2.04-hb4d813b_2/bin/kalign < ${EXEC}.adj.fasta > ${EXEC}.msa.kalign.aln.fasta
+/Users/finnlo/opt/anaconda3/pkgs/kalign2-2.04-hb4d813b_2/bin/kalign < ${EXEC}.adj.fasta > ${EXEC}.msa.kalign.aln.fasta
 
 
 # FOR 01_BROWSE_TIR-DC
