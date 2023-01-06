@@ -1,0 +1,172 @@
+>MyD88-DD_MOUSE
+RLSLFLNPRTPVAADWTLLAEEMG--FEYLEIRELETRPDPTRSLLDAWQGRSGASV-----G--RLLELLALLDREDILKELKS-R------------IS---RIEED----------------CQKYLGKQQNQES
+>MyD88-DD_HUMAN
+RLSLFLNVRTQVAADWTALAEEMD--FEYLEIRQLETQADPTGRLLDAWQGR--ASV-----G--RLLELLTKLGRDDVLLELGP-S------------------IEED----------------CQKYILKQQQEEA
+>tr|D5C178|D5C178_NITHN FGE-sulfatase domain-containing protein OS=Nitrosococcus halophilus (strain Nc4) OX=472759 GN=Nhal_1492 PE=4 SV=1
+KQKIAFSKR--LQRDWKDLADYFD--IPPQEQAAFDKGHEPRDIW--VWLEER-ERL-----Q--ELPEALHYIDREDI--IAEV-------LTPPT-------PPPPP---------ATHTHQKGSPFPGLRAFTTK
+>tr|D5C179|D5C179_NITHN TIR protein OS=Nitrosococcus halophilus (strain Nc4) OX=472759 GN=Nhal_1493 PE=4 SV=1
+KVKIAFCDR--LGDDWKRLADCLE--IRVSDQARFERGDEGRGIW--VWLENR-SRL-----S--QLPAALREIKRGELAELLEN-F------------S--------------------------------------
+>tr|A0A142XB67|A0A142XB67_9BACT 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Gemmata sp. SH-PL17 OX=1630693 GN=VT84_06335 PE=4 SV=1
+KAKLTLYAG--LVTRWSALATYLD--ISLEDRAKFLQGHEPRQIF--EWLEER-NRL-----G--ELRGAFKDLGWPDLIEELDR-H--PQ-----------------------------------------------
+>tr|A0A0B8NJL3|A0A0B8NJL3_9NOCA Adenosylhomocysteine nucleosidase OS=Nocardia seriolae OX=37332 GN=mtnN PE=4 SV=1
+PAKLAVCRR--LLDDWKEVADYFE--VPPHGRARFGRGDEPRELW--AWLEIR-DKL-----H--ELPDALVEIGRGDLSRLLRD-E--AP-----------------------------------------------
+>tr|A0A1I9Z7J0|A0A1I9Z7J0_9NOCA NPCBM domain-containing protein OS=Nocardia seriolae OX=37332 GN=NS506_03802 PE=4 SV=1
+---------------------MLG--VASHETARFPPGDEADRIL--KWLEER-CRL-----G--ELPDALRRIDRPDLAAVFDG-----------------V-DFLGE---------RSDGYT-DGHARLLTATLEP
+>BAW07945.1 conserved hypothetical protein [Nocardia seriolae]
+PAKLAVCRR--LLDDWKEVADYFE--VPPHGRARFGRGDEPRELW--AWLEIR-DKL-----H--ELPDALVEIGRGDLSRLLRD-E--AP-----------------------------------------------
+>tr|A0A1Z4FQN5|A0A1Z4FQN5_9CYAN CHAT domain-containing protein OS=Calothrix sp. NIES-2098 OX=1954171 GN=NIES2098_06580 PE=4 SV=1
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKPGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-K---------------------------------------------------
+>tr|W4LNN3|W4LNN3_9BACT FGE-sulfatase domain-containing protein OS=Candidatus Entotheonella factor OX=1429438 GN=ETSY1_16630 PE=4 SV=1
+PQRVMFSRR--LGHDWRDLATYLE--IPDYEQ-GFAEGAEGQDIL--TWLEQR-GRL-----H--EVLAALNDIGRSELAEILQV-------QSPPS-------PGPDA---------VTPSWP-GRPYPGLCAFSSE
+>tr|W4LLN3|W4LLN3_9BACT NACHT domain-containing protein OS=Candidatus Entotheonella factor OX=1429438 GN=ETSY1_16605 PE=4 SV=1
+-MKLEFCRR--LGNSWRDLADVIP--IPHHEQRRFERGFEPRAIW--DWLQDR-QRL-----S--ELPETLRRIGRDDLVDLWDK-A-----QRESTE------QFYRD---------GITRWA-DARYALDTRFVQL
+>tr|W4MB13|W4MB13_9BACT HTH cro/C1-type domain-containing protein OS=Candidatus Entotheonella gemina OX=1429439 GN=ETSY2_13175 PE=4 SV=1
+KPQIDFLHR--LGHSWQELADYFD--IPVYDQARFERGEEGRRIW--VWLENR-KRL-----H--ELPKALALINRNDLVQVLYS-E------------P--------------------------------------
+>tr|W4MCI4|W4MCI4_9BACT NACHT domain-containing protein OS=Candidatus Entotheonella gemina OX=1429439 GN=ETSY2_08400 PE=4 SV=1
+-MKLEFSHR--LGDSWRELADVIP--IPNHEQRRFERGFEPRAIW--DWLEDW-QRL-----S--ELPEHLRSIGRIDLADLWAE-A-----QRESSD------QFYRD---------CITRWS-DARYELDKRFVQL
+>tr|A0A218QDN5|A0A218QDN5_9CYAN CHAT domain-containing protein OS=Tolypothrix sp. NIES-4075 OX=2005459 GN=NIES4075_09730 PE=4 SV=1
+KVKIKVCQN--LIQDWHNLADYFD--IPLEQRASFEAGRQPYRIW--EWLEQR-SRL-----G--ELEVALSDIGRDDLVEELKK-N---------------------------------------------------
+>tr|A0A836SCG8|A0A836SCG8_9GAMM TIR domain-containing protein OS=Thiotrichaceae bacterium OX=2030882 GN=EYP59_02780 PE=4 SV=1
+KSKLELCRR--LGNDWLDLATCLD--IPAHRRNQFQQGRECYAIL--EWLEERNERL-----Q--KLPEALKDIEREDLLLVFEG-E-----KTPQLQ------QYSDD---------DGGIHP-FKQNAF-------
+>tr|A0A836SDX0|A0A836SDX0_9GAMM Serine protease OS=Thiotrichaceae bacterium OX=2030882 GN=EYP59_02785 PE=4 SV=1
+KIKIRFCRR--LGSDWQELADYLE--IKAYRRSQFQQGRECQAIW--EWLEER-KKW-----H--ILKEALGDLERQDLVDLLNT-N-----NK--------------------------------------------
+>tr|A0A836SI17|A0A836SI17_9GAMM AAA family ATPase (Fragment) OS=Thiotrichaceae bacterium OX=2030882 GN=EYP59_13525 PE=4 SV=1
+KIKIKLCKR--LGNDWQDLADYFE--IPCQQ---FEQGRECQEIW--EWLKKR-DKL-----Q--ELSEALKDLKRNDLLSCFEE-T-----ERDDK-------SLNDN--SSLENE-KGNNHP-GKTAQPTPNHKNL
+>HIE01288.1 MAG TPA: hypothetical protein EYP59_13530 [Thiotrichaceae bacterium]
+KIKIKFCQR--LGVDWQDLADYLK--IPPHRRSQFRQGRECQAIW--EWLEER-ENL-----N--ILKEALDVLDRQDLVELLNT-N-----NK--------------------------------------------
+>tr|A0A6P0V0N3|A0A6P0V0N3_9CYAN 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Symploca sp. SIO1C2 OX=2607769 GN=F6J96_11435 PE=4 SV=1
+KTKIMLCRR--LSKDWKDLADYFD--IPEYKRARFSQGYECQEIW--EWLQDR-NQL-----H--RLRKALKFIDREDLIELLGD-----------------------------------------------------
+>tr|A0A846BTR6|A0A846BTR6_9CYAN Phage protein OS=Symploca sp. SIO1B1 OX=2607763 GN=F6J86_41320 PE=4 SV=1
+TIKVKFCRR--LGDDWYDLADFFE--IPTAARERWEQGLEPKKLW---------ECL-----G--MVCRQLAQ-----------------------------------------------------------------
+>tr|A0A6P0WRV4|A0A6P0WRV4_9CYAN NACHT domain-containing protein OS=Caldora sp. SIO3E6 OX=2607806 GN=F6K41_12275 PE=4 SV=1
+PTRIVICRR--LVNRWLELAIYFE--ISQAERAAFRQGEEPLCTL--DWLEQH-NKL-----NKSELQKAFEELDWKDLIVELDS-P-----QSDSVD-DF-R-EFENQ------NR-IADVVE-DNPYLLGSSFAGR
+>tr|A0A6P0WWU2|A0A6P0WWU2_9CYAN XRE family transcriptional regulator (Fragment) OS=Caldora sp. SIO3E6 OX=2607806 GN=F6K41_12280 PE=4 SV=1
+------CHR--VTIRWQDLAIYLE--IPLADRATFSQGHEPLRTL--EWLEQH-TQQPSEFKN--KLRQAFEELGWNDLIDELDG-S--K------------------------------------------------
+>tr|A0A846G612|A0A846G612_9CYAN CHAT domain-containing protein OS=Okeania sp. SIO2B3 OX=2607784 GN=F6K15_16045 PE=4 SV=1
+KSKYRFCQK--LGDSYRNLALYFE--IPPQDQNRWPAGSECEKIL--EWLENR-SRF-----D--ELPEALIEIEREDLVDMIS------------------------------------------------------
+>tr|A0A846G540|A0A846G540_9CYAN XRE family transcriptional regulator OS=Okeania sp. SIO2B3 OX=2607784 GN=F6K15_16050 PE=4 SV=1
+VNKFKFCTK--LGDSHKDLALYFE--IPPRDQNRWPAGSECEKIL--EWLENR-SRF-----D--ELPEALVEIKREDLVYLISQ-P---------------A-NGEEE------NR-WWQDNE-GGQLFARESFQTN
+>tr|A0A6M0G9Y0|A0A6M0G9Y0_9CYAN 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase OS=Symploca sp. SIO2E6 OX=2607809 GN=F6K47_33365 PE=4 SV=1
+KTKIMLCRR--LNKDWKDLADYFD--IPEYKRARFSQGYECQAIW--EWLQER-NQL-----Y--RLRDALEFIDREDLARWLEEQF---------------------------------------------------
+>tr|A0A6M0GAA9|A0A6M0GAA9_9CYAN Formylglycine-generating enzyme family protein OS=Symploca sp. SIO2E6 OX=2607809 GN=F6K47_33370 PE=4 SV=1
+PTKLKFCHR--LGDDWRDLAIFFD--IRSSTRNRWDKGTESQELW--ELLERQ-GRL-----H--KLPAALLEIGREDLFDMTKG-------LSNSAK------DSCEE----------------TNRYSNPPKQPPP
+>NJL79331.1 MAG: 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase [Richelia sp. SM2_1_7]
+KIKISICNK--LVRDWEDLADYFD--IKLHERETFDKGKEARRVW--EWLEQR-TKL-----H--ELEDAFIAIGREDLVEELNK-----------------------------------------------------
+>NJM20757.1 MAG: 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase [Richelia sp. SM1_7_0]
+KIKISICNK--LVRDWEDLADYFD--IKLHERETFDKGKEARRVW--EWLEQR-TKL-----H--ELEDAFIAIGREDLVEELNK-----------------------------------------------------
+>NJN10092.1 MAG: 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase [Richelia sp. RM1_1_1]
+KIKISICNK--LVRDWEDLADYFD--IKLHERETFDKGKEARRVW--EWLEQR-TKL-----H--ELEDAFIAIGREDLVEELNK-----------------------------------------------------
+>NJO29889.1 MAG: 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase [Richelia sp. SL_2_1]
+KIKISICNK--LVRDWEDLADYFD--IKLHERETFDKGKEARRVW--EWLEQR-TKL-----H--ELEDAFIAIGREDLVEELNK-----------------------------------------------------
+>NJS15985.1 MAG: 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase [Nostocaceae cyanobacterium CSU_2_110]
+KIKISICNK--LVRDWEDLADYFD--IKLHERETFDKGKEARRVW--EWLEQR-TKA-----S--RIRRCIYCNRT--------------------------------------------------------------
+>tr|A0A252DI72|A0A252DI72_9NOSO CHAT domain-containing protein OS=Nostoc sp. RF31YmG OX=1932668 GN=BV378_11875 PE=4 SV=1
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKPGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-N---------------------------------------------------
+>tr|A0A252DUS7|A0A252DUS7_9NOSO CHAT domain-containing protein OS=Nostoc sp. T09 OX=1932621 GN=BV372_20335 PE=4 SV=1
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKTGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-N---------------------------------------------------
+>tr|A0A252E7F3|A0A252E7F3_9NOSO CHAT domain-containing protein OS=Nostoc sp. 106C OX=1932667 GN=BV375_01415 PE=4 SV=1
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKPGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-N---------------------------------------------------
+>PKW31742.1 hypothetical protein CLT72_1056 [Micromonospora sp. CNZ309]
+WVKVEVCRA--LCTDWEDLADYLE--VPPHERAGFQQGRGAFETW--DWMEAR-FRL-----G--ELAPALRALGRPELADLLDD-N---------------E-RG--------------------------------
+>tr|A0A496W9H0|A0A496W9H0_9GAMM CHAT domain-containing protein OS=Gammaproteobacteria bacterium OX=1913989 GN=DRR16_04960 PE=4 SV=1
+KIKIQFCRR--LGNDWQDLATSLD--IPAHRRNQFPQGRECHAIW--EWLEER-KQL-----H--TLKEALGDLDRQDLVELLNT-N-----NKVS------------------------------------------
+>RKZ54271.1 MAG: hypothetical protein DRR00_01565 [Gammaproteobacteria bacterium]
+QSKIAFCRR--LGNDWQDLATCLD--IPAPRRNQFPQGRECHAIL--EWLEEDDKRL-----Q--KLSEALRVLERDDLLSVLEL-S-----QSISHE------EVMQE---------KTTSAS-TPDNQIDKQRLIT
+>tr|A0A4Q5XKK3|A0A4Q5XKK3_9DELT Caspase family protein OS=Myxococcales bacterium OX=2026763 GN=EOO73_05625 PE=4 SV=1
+KARIAIKHA--LVRRWDDLADYFE--IPLSDKVKFEHGYGGQRTL--EWLEER-GRL-----H--ELRQAFTHFHWDDLLAELDR-H--SP-----------------------------------------------
+>RZU04509.1 hypothetical protein EV371_0866 [Plantactinospora sp. CNZ321]
+LTRVHFGRR--LGDSWPELADLLG--MRPDEVDRLPQGREASHIW--SWLEVR-RRL-----P--ELRDALFALDRPDLVNLLDE-D-----------------A---------------------------------
+>tr|A0A1I4LVS1|A0A1I4LVS1_9PROT TIR domain-containing protein OS=Nitrosomonas communis OX=44574 GN=SAMN05421863_1007111 PE=4 SV=1
+KAKIAFCQR--LGEDWKLLADYLE--ITPAEQNRFATGDEGRHIW--VWLDNR-GRL-----H--ELPGMLTDINRPDLARIFTS-A------------PE-------------------------------------
+>SPT51846.1 Uncharacterised protein [Actinomadura madurae]
+ATRAAFRQR--LGPSWRDLADFLD--IPSYESAQFLSGDEPRAIW--DWLKNR-DAL---W----RLPKALQAIGRSDLASLLDS-E-----------------QSADK----L-----------ERPAAQDNDSPPV
+>tr|A0A8B5WS54|A0A8B5WS54_9GAMM FGE-sulfatase domain-containing protein OS=Candidatus Competibacteraceae bacterium OX=2053538 GN=EA420_17215 PE=4 SV=1
+KTILQLRKR--LGEDWPDLALYFD--IPRERCKGFAPGRECDGVV--AWLKEQ-ERI-----G--ELTEALAAVDRDDLIPLLEI---------TPS-------AVSQA---------AALTWP-RSPFPGLRRFNPE
+>tr|A0A8B5WX07|A0A8B5WX07_9GAMM Toll/interleukin-1 receptor domain-containing protein OS=Candidatus Competibacteraceae bacterium OX=2053538 GN=EA420_17220 PE=4 SV=1
+PVQITLCQR--LGEDWANLAVYFD--IPPDRRRSFAPGRECHDIL--VWLKER-DQM-----D--RLPEGLAGIDRPDLVELLNQ-----------------L-LSQTP-----------------------------
+>tr|I9KCY2|I9KCY2_9ACTN WD40 repeat-containing protein OS=Frankia sp. QA3 OX=710111 GN=FraQA3DRAFT_1388 PE=4 SV=1
+QTKVEFAHR--MGPGWTDLADLVG--MSPFERGRLERGDQARGIW--EWLDAR-GRL-----G--ALREALSTIDRDDLVELLDA-D-----RPSPVE------AVADESPAQVVEPRGTSAWTLQEDTDLDTHWLPR
+>tr|I9KD35|I9KD35_9ACTN APH domain-containing protein OS=Frankia sp. QA3 OX=710111 GN=FraQA3DRAFT_1390 PE=4 SV=1
+PVKVRVCQG--LYAEWPELADYVG--VPAWEKARFKAGRGASEVW--EWLERR-FRM-----D--ELAPALRELGRPELADILDR-D---------------L-TG--------------------------------
+>WP_030438849.1 hypothetical protein [Actinoplanes subtropicus]
+KSRVRFQQD--LGPSWKDVADYFQ--VEPHVKARWRPGDEPSELW--DFLQAR-RRL-----G--ELPAALAEVGRQDLVTVLEP-E------------PA-L-PPPPR----------------RRIFVLVAAAAVL
+>WP_033090725.1 hypothetical protein [Nocardia seriolae]
+PAKLAVCRR--LLDDWKEVADYFE--VPPHGRARFGRGDEPRELW--AWLEIR-DKL-----H--ELPDALVEIGRGDLSRLLRD-E--AP-----------------------------------------------
+>tr|A0A0C1N6U8|A0A0C1N6U8_9CYAN PNP_UDP_1 domain-containing protein OS=Tolypothrix bouteillei VB521301 OX=1479485 GN=DA73_0217790 PE=4 SV=1
+QIKMIICQR--LVHDWQELADYFD--IPPHQRAVFNRGREPQGVW--EWLEQR-NKL-----S--ELKTALEVIGRNDLIKELNQ-----------------------------------------------------
+>WP_044290893.1 NB-ARC domain-containing protein [Rivularia sp. PCC 7116]
+RVKTIICKR--LTNDWQDLADYFD--IQLHEREGFRSGRQAHGVW--EWLEQR-DRI-----G--ELESALNDIGRDDLVEELKK-KLVDG-ESTSLCLAKLF-NVPKL---------PDNFLPRDEQLQPLKQKVLS
+>WP_051808508.1 hypothetical protein [Actinoplanes subtropicus]
+KIKVDVLRG--LLGDWRDLADHLG--VPPHDTFRFGAGDQPRQLW--EWLEIR-RRL-----G--ELPAALDGIGRTDLADLVRP-Y---------------L-----------------------------------
+>WP_051809451.1 hypothetical protein [Actinoplanes subtropicus]
+PVKVQVLRR--LTYDWQDLADHLG--IPAWEVRRFRAGDEAHGVW--TWLETR-DRL-----A--DLPGALDGIGRADLAGLVRP-H---------------FTPGRAP-----------------------------
+>tr|A0A0B8NMN4|A0A0B8NMN4_9NOCA NPCBM domain-containing protein OS=Nocardia seriolae OX=37332 GN=D6158_30110 PE=4 SV=1
+EWRLLFHRR--LGDSWRELVIVLG--VASHETARFPPGDEADRIL--KWLEER-CRL-----G--ELPDALRRIDRPDLAAVFDG-----------------V-DFLGE---------RSDGYT-DGHARLLTATLEP
+>WP_063628695.1 MULTISPECIES: CHAT domain-containing protein [Nostocales]
+KAKNYICQR--LVDDWEQLADHFD--IPKHQKNSFERGKEPNRVW--EWLEQR-SRL-----G--ELEVALSDIGRDDLVEELKK-N---------------------------------------------------
+>tr|A0A1I4LUX9|A0A1I4LUX9_9PROT Putative serine esterase OS=Nitrosomonas communis OX=44574 GN=SAMN05421863_1007107 PE=4 SV=1
+SLKLAFCER--LGHSWRELADILE--IRPSEQARFQQGLEPKAIW--EWLEQR-KRL-----T--ELPSALRRIDRHDLAEEFDR-S-----RPN-------------------------------------------
+>tr|A0A1I4LVD6|A0A1I4LVD6_9PROT Formylglycine-generating enzyme, required for sulfatase activity, contains SUMF1/FGE domain OS=Nitrosomonas communis OX=44574 GN=SAMN05421863_1007110 PE=4 SV=1
+KQKIIFYNN--LGNNWQELADYFE--IPNRHQKQYPQGDEAREIW--AWLEQN-ARL-----D--QLEPALKDIGRPDLAAKIHS-------SGTLE-------SSPEP---------KKISGT--CPYIGLRAFTED
+>WP_074904188.1 TIR domain-containing protein [Nitrosomonas communis]
+KAKIAFCQR--LGEDWKLLADYLE--ITPAEQNRFATGDEGRHIW--VWLDNR-GRL-----H--ELPGMLTDINRPDLARIFTS-A------------PE-------------------------------------
+>tr|A0A3F2UDE6|A0A3F2UDE6_9NOCA PNP_UDP_1 domain-containing protein OS=Nocardia seriolae OX=37332 GN=D6158_30105 PE=4 SV=1
+PAKLAVCRR--LLDDWKEVADYFE--VPPHGRARFGRGDEPRELW--AWLEIR-DKL-----H--ELPDALVEIGRGDLSRLLRD-E--AP-----------------------------------------------
+>WP_082062736.1 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase [Nocardia seriolae]
+PAKLAVCRR--LLDDWKEVADYFE--VPPHGRARFGRGDEPRELW--AWLEIR-DKL-----H--ELPDALVEIGRGDLSRLLRD-E--AP-----------------------------------------------
+>WP_086688304.1 CHAT domain-containing protein [Nostoc sp. T09]
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKTGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-N---------------------------------------------------
+>WP_086756477.1 CHAT domain-containing protein [Nostoc sp. 106C]
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKPGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-N---------------------------------------------------
+>WP_086834185.1 CHAT domain-containing protein [Nostoc sp. RF31YmG]
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKPGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-N---------------------------------------------------
+>WP_089718394.1 SUMF1/EgtB/PvdO family nonheme iron enzyme [Candidatus Entotheonella palauensis]
+PQRVMFSRR--LGHDWRDLATYLE--IPDYEQ-GFAEGAEGQDIL--TWLEQR-GRL-----H--EVLAALNDIGRSELAEILQV-------QSPPS-------PGPDA---------VTPSWP-GRPYPGLCAFSSE
+>WP_089718395.1 TIR domain-containing protein [Candidatus Entotheonella palauensis]
+PTKLAFFRQ--LGHDWRDLATVLG--IADYDQRRFERGEEGRDMW--VWLENR-QRL-----A--ELPQALIDMGRPDLAELLRR-E------------P--------------------------------------
+>WP_089941919.1 TIR domain-containing protein [Candidatus Entotheonella palauensis]
+KPQIDFLHR--LGHSWQELADYFD--IPVYDQARFERGEEGRRIW--VWLENR-KRL-----H--ELPKALALINRNDLVQVLYS-E------------P--------------------------------------
+>tr|A0A1C5AWF9|A0A1C5AWF9_9ACTN Phosphorylase superfamily protein OS=Micromonospora matsumotoense OX=121616 GN=GA0070216_13519 PE=4 SV=1
+SVKKEVLRP--LTYDWQDLADYLG--IPSHHVRRFRAGDEAYEVW--GWLESR-DRL-----G--ELPDALESIGRGDLADLLRR-H---------------L-----------------------------------
+>WP_096595110.1 CHAT domain-containing protein [Calothrix sp. NIES-2098]
+QTKIFICRR--LTQDWQDLADYFE--IQPHERAGFKPGREPHSIW--EWLEQR-NRL-----G--ELESALIEIGREDLAQELKK-K---------------------------------------------------
+>tr|A0A1Z4LQG3|A0A1Z4LQG3_9CYAN PNP_UDP_1 domain-containing protein OS=Calothrix parasitica NIES-267 OX=1973488 GN=NIES267_29810 PE=4 SV=1
+KLKITICNR--LVRDWEDLADYFD--IKLHERETFEKGKEARRVW--EWLEQR-NRL-----H--ELEDALIAIGREDLAEEFKK-----------------------------------------------------
+>tr|A0A1Z4T3I0|A0A1Z4T3I0_9CYAN PNP_UDP_1 domain-containing protein OS=Calothrix sp. NIES-4105 OX=2005463 GN=NIES4105_72190 PE=4 SV=1
+RVKVRVCEN--LFPGWELLADYFD--ISPRERAAFQPGRQAHDVW--DWLKQR-DRL-----D--ELEDALREIGREEVVQELYK-----------------------------------------------------
+>WP_102152967.1 NB-ARC domain-containing protein [Fischerella thermalis]
+RTKILICQR--LTQDWQDLADYFD--IKLHERAGFRPGREPHSIW--EWLEQR-NRL-----G--ELESALIDIGREDLAEELKK-KLVDDLETETSCLGKLIGDVPNL---------PPHFLPRPEQLEPLKQQVLS
+>tr|A0A365UWK4|A0A365UWK4_MICCH Response regulatory domain-containing protein OS=Micromonospora chalcea OX=1874 GN=DRA43_16250 PE=4 SV=1
+PAKVDFCRRM-QQENWRELADLYG--ISAAERASFPHGEQVAALW--DLVESR-RRL-----D--ELPDHLDELGHTHLAEALRD-S-----------------VVDAP----------------VPAVTRVAGAGLG
+>tr|A0A365UWM2|A0A365UWM2_MICCH DUF2384 domain-containing protein OS=Micromonospora chalcea OX=1874 GN=DRA43_16265 PE=4 SV=1
+RVKVEFCRR--LGASWAELADVLD--VPPHERGLFVTGSEGRELW--EWLQVR-HRL-----P--ALPEALDLIGRDDLVELLAA-P-----------------DPDRR-TG--------------------------
+>WP_130460897.1 hypothetical protein [Plantactinospora sp. CNZ321]
+LTRVHFGRR--LGDSWPELADLLG--MRPDEVDRLPQGREASHIW--SWLEVR-RRL-----P--ELRDALFALDRPDLVNLLDE-D-----------------A---------------------------------
+>WP_130460898.1 tetratricopeptide repeat protein [Plantactinospora sp. CNZ321]
+AAEREFYGR--LHSSWPDLCTVLE--IDEQDRDRFPTGEEGRQIW--RWLKAR-KRL-----D--ELPDALLAIKREDLAETLEA-G-----------------RLPDR---------AATE---AGPRTPPGGPRLT
+>WP_130472516.1 hypothetical protein [Candidatus Magnetaquicoccus inordinatus]
+RTKLELCRR--LGENWEDVADSLDPSVPASDRRRFRPGNECQDLW--TWLEIR-GRL-----S--ELSDALRNAGREELAQLFDS-----------------------------------------------------
+>WP_130472517.1 hypothetical protein [Candidatus Magnetaquicoccus inordinatus]
+RTKFQFCQR--LHQSWEDLADVLEPEIPRHERNRFRQGRECEDLW--GWLEDR-DRL-----D--ELPEALGIIKRGDLAQLLED-E-----------------RRTAP---------QPSDSP-AGRLQENLSQSGL
+>WP_143309823.1 hypothetical protein [Candidatus Entotheonella palauensis]
+QTKLAFFRQ--LGNDWRDLATVLG--IGDYDWRRFERGEEGRNIW--VWLENR-RRL-----A--ELPPALIDIGRSDLAELLRR-A------------Q--------------------------------------
+>WP_144082196.1 hypothetical protein [Micromonospora sp. CNZ309]
+WAKVKFCQRM-QPDNWRDLADLFD--VSPADRARFTRGDEARSLW--ELVEAR-GQL-----D--RLPDLLDELGRAELSLLLRQ-S-----------------REAAE----------------QPTLALPPVPQQD
+>WP_144082198.1 hypothetical protein [Micromonospora sp. CNZ309]
+RIKVQFARR--LGQSWDELVDVLD--VPVYDRARFEPGRRAQALW--EWLEVR-DRL-----W--SLRAALIEVGRDDLVVLLDH-P-----------------PPQER-----------------------------
+>WP_146877386.1 hypothetical protein [Actinomadura madurae]
+ATRAAFRQR--LGPSWRDLADFLD--IPSYESAQFLSGDEPRAIW--DWLKNR-DAL---W----RLPKALQAIGRSDLASLLDS-E-----------------QSADK----L-----------ERPAAQDNDSPPV
+>WP_146877388.1 hypothetical protein [Actinomadura madurae]
+KVKLAFVRR--LGPSWQDLSDLLD--IPLYIQATFVTGNEARALW--EWLEVR-NQL-----N--GLEDALREIGREDLADFFAC-E---------------------------------------------------
+>WP_147207373.1 5'-methylthioadenosine/S-adenosylhomocysteine nucleosidase, partial [Nocardia seriolae]
+PAKLAVCRR--LLDDWKEVADYFE--VPPHGRARFGRGDEPRELW--AWLEIR-DKL-----H--ELPDALVEIGRGDLSRLLRD-E--AP-----------------------------------------------
+>tr|A0A6I3KSE3|A0A6I3KSE3_9NOCA PNP_UDP_1 domain-containing protein OS=Nocardia aurantiaca OX=2675850 GN=GLP40_12935 PE=4 SV=1
+TVKLVVCQR--LLDDWEKVADYFD--VPPHNRAPFRHGRQARDLW--VWLEIR-DKL-----H--ELPDALTVIGRADLAEILRD-S--QA-----------------------------------------------
+>tr|A0A6I3KZK0|A0A6I3KZK0_9NOCA NB-ARC domain-containing protein OS=Nocardia aurantiaca OX=2675850 GN=GLP40_12940 PE=4 SV=1
+RARLEFQCR--LGASWEDLAVLLG--IKPYVSDGFAQGREASGIW--RWLEER-QRL-----A--ELPDALIHIDRTDLAALFAE-----------------M-NLAAA----------------TDSMESSVSVTAF
+>WP_158241970.1 hypothetical protein [Micromonospora sp. CNZ309]
+WVKVEVCRA--LCTDWEDLADYLE--VPPHERAGFQQGRGAFETW--DWMEAR-FRL-----G--ELAPALRALGRPELADLLDD-N---------------E-RG--------------------------------
+>WP_158660795.1 NPCBM/NEW2 domain-containing protein [Nocardia seriolae]
+-----------MGDSWRELVIVLG--VASHETARFPPGDEADRIL--KWLEER-CRL-----G--ELPDALRRIDRPDLAAVFDG-----------------V-DFLGE---------RSDGYT-DGHARLLTATLEP
+>tr|A0A6G9SQT4|A0A6G9SQT4_9CYAN CHAT domain-containing protein OS=Tolypothrix sp. PCC 7910 OX=2099387 GN=HCG51_32860 PE=4 SV=1
+RTKIFICQR--LTQDWQDLADYFD--IKPHERAGFRQGREPQSIW--EWLEQR-NRL-----D--ELESALAEIGRDDLADELKK-K---------------------------------------------------
